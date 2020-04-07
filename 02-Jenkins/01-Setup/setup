@@ -1,0 +1,6 @@
+# Download Jenkins Binary/Code. 
+wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+
+
+# Install Jenkins 
+java -jar jenkins.war --httpPort=9091 &
