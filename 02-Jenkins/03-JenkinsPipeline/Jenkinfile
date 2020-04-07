@@ -1,0 +1,35 @@
+node {
+
+      stage('Git CheckOut') { 
+          git branch: 'production', url: 'https://github.com/amitvashisttech/devops-acc-2020April06.git'  
+          
+      }
+      
+      def project_path = "02-Jenkins/02-Petclinic-Project"
+      dir(project_path) {
+      
+      stage('Clean Project') { 
+          sh label: '', script: 'mvn clean'
+          
+      }
+      stage('Compile Project') {
+          sh label: '', script: 'mvn compile'
+          
+      }
+      stage('Test Project') { 
+          sh label: '', script: 'mvn test'
+          
+      }
+        stage('Package Project') { 
+            sh label: '', script: 'mvn package'
+            
+        }
+        
+          stage('Archive Artifact') { 
+            archiveArtifacts 'target/*.war'
+            
+        }
+      }    
+   }
+
+
