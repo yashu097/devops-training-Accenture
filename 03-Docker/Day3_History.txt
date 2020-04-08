@@ -110,3 +110,180 @@
   108  cd 03-Docker/
   109  ls
   110  history > Day3_History.txt
+  111  ls
+  112  cd ..
+  113  ls
+  114  git add . ; git commit -m "DockerFile"
+  115  git push 
+  116  ls
+  117  cd 03-Docker/
+  118  ls
+  119  cat Day3_History.txt 
+  120  ls
+  121  git config --list 
+  122  ls
+  123  cd ls
+  124  cd ..
+  125  ls
+  126  cd 
+  127  git clone 
+  128  git clone https://github.com/amitvashisttech/hyperspace.git
+  129  sl
+  130  ls
+  131  cd hyperspace/
+  132  ls
+  133  cat Vagrantfile 
+  134  ls
+  135  cd packer/
+  136  ls
+  137  cat hyperspace.json 
+  138  ls
+  139  cd 
+  140  ls
+  141  cd hyperspace/
+  142  ls
+  143  cp -rf ../devops-acc-2020April06/03-Docker/Dockerfile , 
+  144  cp -rf ../devops-acc-2020April06/03-Docker/Dockerfile . 
+  145  ls
+  146  cd Dockerfile/
+  147  ls
+  148  cp -rf hyperspace
+  149  ls
+  150  cp -rf apache hyperspace
+  151  ls
+  152  cp -rf ../packer/scripts hyperspace/
+  153  ls
+  154  cd hyperspace/
+  155  ls
+  156  vim Dockerfile 
+  157  ls
+  158  docker run -it ubuntu:16.04
+  159  ls
+  160  cp -rf scripts/base.sh scripts/exec.sh
+  161  vim scripts/exec.sh 
+  162  ls
+  163  vim Dockerfile 
+  164  docker build -t hyperspace:v1 . 
+  165  docker images 
+  166  docker run -it 0e566a989fa2        
+  167  ls
+  168  vim Dockerfile 
+  169  docker build -t hyperspace:v1 . 
+  170  docker images 
+  171  docker run -it fa001516c967        
+  172  vim Dockerfile 
+  173  docker build -t hyperspace:v1 . 
+  174  vim scripts/
+  175  ls
+  176  cd scripts/
+  177  ls
+  178  vim base.sh 
+  179  ls
+  180  vim hyperspace.sh 
+  181  ls
+  182  cd ..
+  183  ls
+  184  vim Dockerfile 
+  185  docker run -it ubuntu:16.04
+  186  ls
+  187  vim Dockerfile 
+  188  ls
+  189  rm 1
+  190  docker build -t hyperspace:v1 . 
+  191  vi Dockerfile 
+  192  docker build -t hyperspace:v1 . 
+  193  vim scripts/hyperspace.sh 
+  194  vi scripts/hyperspace.sh 
+  195  docker build -t hyperspace:v1 . 
+  196  vim Dockerfile 
+  197  ls
+  198  cat scripts/base.sh 
+  199  vim Dockerfile 
+  200  docker build -t hyperspace:v1 . 
+  201  docker images 
+  202  docker run -it 170f2ea693fd        
+  203  ls
+  204  docker ps 
+  205  docker images 
+  206  docker images | grep -i none
+  207  docker images | grep -i none | awk -F " " '{print $3}'
+  208  docker rmi $(docker images | grep -i none | awk -F " " '{print $3}')
+  209  docker rmi $(docker images | grep -i none | awk -F " " '{print $3}') --force
+  210  ls
+  211  cd 
+  212  ls
+  213  rm -rf hyperspace/
+  214  ls
+  215  cd devops-acc-2020April06/
+  216  ls
+  217  cd 03-Docker/
+  218  ls
+  219  cd Dockerfile/
+  220  ls
+  221  cd apache/
+  222  ls
+  223  cat Dockerfile 
+  224  vim info.html
+  225  ls
+  226  vim Dockerfile 
+  227  docker images 
+  228  docker build -t myapache:v2 . 
+  229  docker images 
+  230  docker run -d myapache:v2
+  231  docker ps 
+  232  docker ps -l
+  233  docker ps -lq
+  234  docker inspect $(docker ps -lq)
+  235  curl 172.17.0.5
+  236  curl 172.17.0.5/info.html
+  237  docker run -d -p 30808:80 myapache:v2
+  238  ls
+  239  cd ..
+  240  ls
+  241  cd ..
+  242  ls
+  243  cd ..
+  244  ls
+  245  git add . ; git commit -m "Docker Image v2"; git push 
+  246  ls
+  247  docker images 
+  248  docker pull amitvashist7/k8s-tiny-web
+  249  ls
+  250  docker imags 
+  251  docker images
+  252  docker run -it amitvashist7/k8s-tiny-web 
+  253  docker run -it amitvashist7/k8s-tiny-web /bin/sh
+  254  docker run -it amitvashist7/k8s-tiny-web:latest /bin/bash
+  255  ls
+  256  docker images 
+  257  docker tag myapache:v2 amitvashist7/test-apache:v1
+  258  docker images 
+  259  docker push amitvashist7/test-apache:v1
+  260  docker login 
+  261  docker push amitvashist7/test-apache:v1
+  262  docker logout 
+  263  ls
+  264  docker ps 
+  265  docker kill $(docker ps -qa)
+  266  docker ps 
+  267  docker ps -a
+  268  docker rm $(docker ps -qa)
+  269  docker ps 
+  270  docker ps -a
+  271  docker images 
+  272  docker images -q
+  273  docker rmi $(docker images -q)
+  274  docker rmi $(docker images -q) --force 
+  275  ls
+  276  docker images 
+  277  docker ps -a 
+  278  docker run -d -p 80:80 9f099a4feebd: Pushed 
+  279  1c727bd5b4c8: Pushed 
+  280  docker run -d -p 80:80 amitvashist7/test-apache:v1
+  281  docker ps 
+  282  curl localhost/info.html
+  283  history 
+  284  ls
+  285  cd 03-Docker/
+  286  ls
+  287  history > Day3_History.txt 
