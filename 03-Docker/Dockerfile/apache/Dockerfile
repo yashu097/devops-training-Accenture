@@ -2,7 +2,7 @@
 FROM ubuntu:16.04 
 
 # Owner Image
-MAINTAINER Amit Vashist <amitvashist7@gmail.com>
+MAINTAINER Yashu Ayush <yashu9711ayush@gmail.com>
 
 # Update APT Repo
 RUN apt-get update
