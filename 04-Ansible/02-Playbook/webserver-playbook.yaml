@@ -18,3 +18,11 @@
   tasks:
   - name: Install GIT Packages
     apt: name=git state=present
+
+- hosts: web
+  name: Getting python
+  become: yes
+
+  tasks:
+  - name: Install Python3
+    apt: name=python3 state=present
