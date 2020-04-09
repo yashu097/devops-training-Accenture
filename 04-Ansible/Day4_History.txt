@@ -1,0 +1,17 @@
+    1  ansible all -i inventory -m ping -u vagrant -k 
+    2  apt-get install sshpass -y 
+    3  ls -ltr  /root/.ssh/
+    4  ssh vagrant@172.42.42.101
+    5  ls -ltr  /root/.ssh/
+    6  cat   /root/.ssh/known_hosts 
+    7  ansible all -i inventory -m ping -u vagrant -k 
+    8  ssh vagrant@172.42.42.102
+    9  ansible all -i inventory -m ping -u vagrant -k 
+   10  cat /root/.ssh/known_hosts 
+   11  ls
+   12  cat inventory 
+   13  ..
+   14  ls
+   15  cd ..
+   16  ls
+   17  history > Day4_History.txt

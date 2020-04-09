@@ -5,7 +5,7 @@ services:
   petclinic: 
     build: . 
     ports: 
-      - '30009:80'
+      - '30099:80'
 
 #  my-kinyweb:
  #   image: amitvashist7/k8s-tiny-web:3
