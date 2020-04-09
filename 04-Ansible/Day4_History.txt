@@ -15,3 +15,66 @@
    15  cd ..
    16  ls
    17  history > Day4_History.txt
+   18  ls
+   19  cd ..
+   20  ls
+   21  git add . ; git commit -m "01-Ansible Basic Inventory"
+   22  git push 
+   23  ls
+   24  cd 04-Ansible/
+   25  ls
+   26  01-Inventory/
+   27  ls
+   28  cat 01-Inventory/inventory 
+   29  ansible all -i inventory -m ping -u vagrant -k 
+   30  docker kill $(docker ps -q)
+   31  docker ps -q
+   32  ls
+   33  cd 01-Inventory/
+   34  ls
+   35  vim inventory 
+   36  ansible all -i inventory -m ping -u vagrant -k 
+   37  vim inventory 
+   38  ansible all -i inventory -m ping -u vagrant -k 
+   39  ansible web -i inventory -m ping -u vagrant -k 
+   40  ansible db -i inventory -m ping -u vagrant -k 
+   41  vim inventory 
+   42  ansible db -i inventory -m ping -u vagrant -k 
+   43  vim inventory 
+   44  ansible db -i inventory -m ping -u vagrant -k 
+   45  ls
+   46  vim inventory 
+   47  ansible dc -i inventory -m ping -u vagrant -k 
+   48  lls
+   49  ls
+   50  vim inventory 
+   51  ansible dc -i inventory -m ping
+   52  ansible web -i inventory -m ping
+   53  ansible web -i inventory -m pingl
+   54  ls
+   55  vim inventory 
+   56  ansible all -i inventory -m pingl
+   57  ansible all -i inventory -m ping
+   58  ansible dc -i inventory -m ping
+   59  ansible web -i inventory -m ping
+   60  ansible db -i inventory -m ping
+   61  ls
+   62  vi inventory 
+   63  ansible prod -i inventory -m ping
+   64  ansible uat -i inventory -m ping
+   65  ansible uat:prod -i inventory -m ping
+   66  ansible 'prod:&web' -i inventory -m ping
+   67  ansible 'prod:&db' -i inventory -m ping
+   68  ls
+   69  vim inventory 
+   70  ansible 'prod:&db' -i inventory -m ping
+   71  ansible 'prod:&web' -i inventory -m ping
+   72  ansible 'prod:&db' -i inventory -m ping
+   73  ansible 'prod:&db:!python3' -i inventory -m ping
+   74  ansible 'prod:&web:!python3' -i inventory -m ping
+   75  vi inventory 
+   76  ansible 'prod:&web:!python3' -i inventory -m ping
+   77  ls
+   78  cd ..
+   79  ls
+   80  history > Day4_History.txt 
