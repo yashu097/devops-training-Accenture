@@ -1,0 +1,7 @@
+---
+- hosts: mysrv
+  name: My Apache Server Installation
+  become: yes
+  roles:
+  - webserver
+  - server-common

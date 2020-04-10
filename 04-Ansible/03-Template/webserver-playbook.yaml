@@ -3,6 +3,7 @@
 # Update2: Deploy Info Template Web Page
 # Update3: Smart Playbook with When Candation.
 # Update4: Local Varibales in playbook & Templates
+# Update5: Mario Background Image Deployment.
 
 
 - hosts: mysrv
@@ -32,6 +33,9 @@
      
   - name: Deploy Index Page
     copy: src=templates/index.html dest={{doc_root}}/index.html
+
+  - name: Download Mario Background Image
+    get_url: url=http://www.mariomayhem.com/downloads/wallpapers/24/mushroom_1024_x_768.jpg dest={{doc_root}}/mario.jpg mode=0755
 
   - name: Deploy Info Template Page
     template: src=templates/info.j2 dest={{doc_root}}/info.html
