@@ -1,0 +1,57 @@
+# Basic Host Defination 
+172.42.42.101
+172.42.42.102
+172.42.42.1[10:15]
+
+
+# Group Defination - Functional
+[web]
+172.42.42.101
+172.42.42.10[3:5]
+
+
+[db]
+172.42.42.102
+#172.42.42.1[06:10]
+
+[firewall]
+10.10.10.11[1:5]
+
+[mysrv]
+172.42.42.102
+172.42.42.101
+
+# Group Defination - Environment
+[prod]
+172.42.42.101
+172.42.42.103
+172.42.42.102
+172.42.42.106
+
+[uat]
+172.42.42.104
+172.42.42.105
+172.42.42.107
+172.42.42.108
+
+
+[python3]
+172.42.42.103
+172.42.42.106
+
+# Group of Groups
+[dc:children]
+web
+db
+
+# Group Varibales
+[dc:vars]
+# Group of Groups
+[dc:children]
+web
+db
+
+# Group Varibales
+[dc:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_pass=vagrant
