@@ -1,0 +1,228 @@
+    1  java -version 
+    2  mvn -version 
+    3  ansible --version 
+    4  docker status 
+    5  docker version 
+    6  exit
+    7  ls
+    8  cd devops-acc-2020April06/
+    9  ls
+   10  git pull 
+   11  ls
+   12  cat README.md 
+   13  ls
+   14  vim README.md 
+   15  git add . ; git commit -m "READme"; git push 
+   16  ls
+   17  git init 
+   18  ls -a 
+   19  git config --global --list 
+   20  git config --global user.name "Amit Vashist"
+   21  git config --global user.email "amitvashist7@outlook.com"
+   22  git config --global --list 
+   23  ls
+   24  vim README.md 
+   25  ls
+   26  cd devops-acc-2020April06/03-Docker/DockerCompose/3-tier-wordpress-app/
+   27  ls
+   28  mkdir logs/nginx -p 
+   29  mkdir db-data
+   30  ls
+   31  exit
+   32  ls
+   33  cd devops-acc-2020April06/04-Ansible/04-Roles/
+   34  ls
+   35  mkdir roles
+   36  cd roles/
+   37  ls
+   38  ansible-galaxy init webserver
+   39  ls
+   40  ansible-galaxy init tomcat
+   41  ls
+   42  apt-get install tree -y 
+   43  ls
+   44  tree . 
+   45  ls
+   46  cd webserver/
+   47  ls
+   48  vim vars/main.yml 
+   49  ls
+   50  vim tasks/main.yml 
+   51  ls
+   52  cp -rf ../../../03-Template/templates/index.html files/
+   53  cp -rf ../../../03-Template/templates/info.j2 templates/
+   54  ls
+   55  vim tasks/main.yml 
+   56  ls
+   57  cd ..
+   58  ls
+   59  ansible-galaxy init server-common
+   60  ls
+   61  vim server-common/tasks/git.yaml
+   62  ls
+   63  vim server-common/tasks/firewall.yaml
+   64  ls
+   65  vim server-common/tasks/common-user.yaml
+   66  cat /etc/shadow
+   67  vim server-common/tasks/common-user.yaml
+   68  ls
+   69  vim server-common/tasks/main.yml 
+   70  ls
+   71  cd ..
+   72  l
+   73  ls
+   74  rm -rf templates/
+   75  ls
+   76  cat webserver-playbook.yaml 
+   77  ls
+   78  cd ..
+   79  ls
+   80  cd 04-Roles/
+   81  ls
+   82  cat webserver-playbook.yaml 
+   83  vim webserver.yaml
+   84  ansible-playbook webserver.yaml 
+   85  ls
+   86  rm webserver-playbook.yaml
+   87  ls
+   88  cat webserver.yaml 
+   89  vim webserver.yaml 
+   90  ansible-playbook webserver.yaml 
+   91  cat webserver.yaml 
+   92  vim roles/server-common/tasks/main.yml 
+   93  ansible-playbook webserver.yaml 
+   94  ls
+   95  cp -rf webserver.yaml common.yaml
+   96  ls
+   97  vim webserver.yaml 
+   98  ls
+   99  ansible-playbook common.yaml 
+  100  vim common.yaml 
+  101  ls
+  102  vim webserver.yaml 
+  103  ls
+  104  mv webserver.yaml common_1.yaml 
+  105  ls
+  106  cp -rf common.yaml webserver.yaml
+  107  ;s
+  108  ls
+  109  mv common_1.yaml common.yaml
+  110  ls
+  111  cat common.yaml 
+  112  cat webserver.yaml 
+  113  ansible-playbook common.yaml 
+  114  ls
+  115  tree roles/
+  116  ls
+  117  tree roles/
+  118  ls
+  119  cd ..
+  120  ls
+  121  cd ..
+  122  ls
+  123  git add . ;git commit -m "04-Roles"; git push 
+  124  ls
+  125  cd 04-Ansible/
+  126  ls
+  127  history > Day4_History.txt 
+  128  cd ..
+  129  ls
+  130  git add . ; git commit -m "History"; git push 
+  131  cd 
+  132  ls
+  133  du -sh apache-tomcat-8.5.53.zip
+  134  ls
+  135  tar -zcvf apache-tomcat-8.5.53 apache-tomcat-8.5.53
+  136  ls
+  137  tar -zcvf apache-tomcat-8.5.53.tar.gz apache-tomcat-8.5.53
+  138  ls
+  139  du -sh apache-tomcat-8.5.53.tar.gz 
+  140  ls
+  141  l
+  142  cd devops-acc-2020April06/
+  143  ls
+  144  cd 04-Ansible/
+  145  ls
+  146  cd 04-Roles/
+  147  ls
+  148  cd roles/
+  149  ls
+  150  vim tomcat/tasks/main.yml 
+  151  ls
+  152  vim tomcat/handlers/main.yml 
+  153  vim tomcat/tasks/main.yml 
+  154  cd ..
+  155  ansible-playbook tomcat.yaml 
+  156  ls
+  157  cd ..
+  158  ls
+  159  cd ..
+  160  ls
+  161  cd 02-Jenkins/
+  162  ls
+  163  cd 02-Petclinic-Project/
+  164  ls
+  165  cp -rf ../../03-Docker/DockerCompose/petclinc/docker-compose.yaml . 
+  166  cp -rf ../../03-Docker/DockerCompose/petclinc/Dockerfile . 
+  167  ls
+  168  vim Dockerfile 
+  169  ls
+  170  cd ..
+  171  ls
+  172  cd 03-JenkinsPipeline/
+  173  ls
+  174  cp -rf Jenkinfile Jenkinfile-Initial
+  175  ls
+  176  vim Jenkinfile
+  177  ls
+  178  cd ..
+  179  ls
+  180  cd ..
+  181  ls
+  182  git add . 
+  183  git status 
+  184  git commit -m "Jenkinfile - DockerCompose"
+  185  git push 
+  186  docker ps 
+  187  docker ps -a 
+  188  docker ps -aq 
+  189  docker rm $(docker ps -aq)
+  190  ls
+  191  docker ps 
+  192  ls
+  193  cd 02-Jenkins/
+  194  ls
+  195  cd 03-JenkinsPipeline/
+  196  ls
+  197  cp -rf Jenkinfile Jenkinfile-DockerCompose
+  198  ls
+  199  vim Jenkinfile
+  200  ls
+  201  cd ..
+  202  ls
+  203  git add . ; git commit -m "Getting Ready For Ansible"; git push 
+  204  ls
+  205  cd 04-Ansible/
+  206  ls
+  207  cd 04-Roles/
+  208  ls
+  209  vim webserver.yaml 
+  210  ls
+  211  vim common.yaml 
+  212  ls
+  213  vim tomcat.yaml 
+  214  ls
+  215  mv common.yaml site.yaml
+  216  ls
+  217  vim site.yaml 
+  218  ls
+  219  ansible-playbook site.yaml --check
+  220  ls
+  221  vim inventory 
+  222  ansible-playbook site.yaml --check
+  223  vim inventory 
+  224  ansible-playbook site.yaml --check
+  225  ls
+  226  cd ..
+  227  ls
+  228  history > Day5_History.txt 

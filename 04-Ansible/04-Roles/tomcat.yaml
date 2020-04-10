@@ -1,0 +1,6 @@
+---
+- hosts: mysrv
+  name: Tomcat Deployment
+  become: yes
+  roles:
+  - tomcat

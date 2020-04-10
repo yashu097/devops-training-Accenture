@@ -1,0 +1,40 @@
+node {
+
+      stage('Git CheckOut') { 
+          git branch: 'master', url: 'https://github.com/yashu097/devops-training-Accenture.git'  
+          
+      }
+      
+      def project_path = "02-Jenkins/02-Petclinic-Project"
+      dir(project_path) {
+      
+      stage('Clean Project') { 
+          sh label: '', script: 'mvn clean'
+          
+      }
+      stage('Compile Project') {
+          sh label: '', script: 'mvn compile'
+          
+      }
+      stage('Test Project') { 
+          sh label: '', script: 'mvn test'
+          
+      }
+        stage('Package Project') { 
+            sh label: '', script: 'mvn package'
+       }
+        
+        stage('Archive Artifact') { 
+            archiveArtifacts 'target/*.war'
+        }
+        stage('Petclinic Deployment to Stage Env. - Docker') { 
+            sh label: '', script: 'docker-compose up -d --build'
+       }
+        stage('Getting Ready For Ansible Prod Deployment') { 
+            sh label: '', script: 'cp -rf target/petclinic.war ../../04-Ansible/04-Roles/roles/tomcat/files/petclinic.war'
+            sh label: '', script: "echo '<h1>JENKINS_TASK_ID: '${env.JOB_NAME}[${env.BUILD_NUMBER}]'</h1>' > ../../04-Ansible/04-Roles/roles/tomcat/files/jenkins.html"
+       }
+      }    
+   }
+
+

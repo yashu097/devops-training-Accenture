@@ -4,4 +4,3 @@
   become: yes
   roles:
   - webserver
-  - server-common

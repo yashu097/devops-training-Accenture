@@ -1,2 +1,5 @@
 ---
 # vars file for tomcat
+
+doc_tomcat: "/opt/SP/apps/tomcat"
+username: "tomcat-deployment-test-1"

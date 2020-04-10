@@ -22,13 +22,22 @@ node {
       }
         stage('Package Project') { 
             sh label: '', script: 'mvn package'
-            
-        }
+       }
         
-          stage('Archive Artifact') { 
+        stage('Archive Artifact') { 
             archiveArtifacts 'target/*.war'
-            
         }
+        stage('Petclinic Deployment to Stage Env. - Docker') { 
+            sh label: '', script: 'docker-compose up -d --build'
+       }
+        stage('Getting Ready For Ansible Prod Deployment') { 
+            sh label: '', script: 'cp -rf target/petclinic.war ../../04-Ansible/04-Roles/roles/tomcat/files/petclinic.war'
+            sh label: '', script: "echo '<h1>JENKINS_TASK_ID: '${env.JOB_NAME}[${env.BUILD_NUMBER}]'</h1>' > ../../04-Ansible/04-Roles/roles/tomcat/files/jenkins.html"
+       }
+
+        stage('Petclinic Ansible Deployment - PROD') { 
+            sh label: '', script: 'cd ../../04-Ansible/04-Roles;ansible-playbook site.yaml'
+        } 
       }    
    }
 

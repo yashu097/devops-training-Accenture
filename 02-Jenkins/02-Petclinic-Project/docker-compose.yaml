@@ -1,0 +1,13 @@
+version: '2'
+
+
+services: 
+  petclinic: 
+    build: . 
+    ports: 
+      - '30099:8080'
+
+  my-kinyweb:
+    image: amitvashist7/k8s-tiny-web:3
+    ports:
+      - '30080:80'
