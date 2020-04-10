@@ -1,7 +1,7 @@
 node {
 
       stage('Git CheckOut') { 
-          git branch: 'production', url: 'https://github.com/yashu097/devops-training-Accenture.git'  
+          git branch: 'master', url: 'https://github.com/yashu097/devops-training-Accenture.git'  
           
       }
       
