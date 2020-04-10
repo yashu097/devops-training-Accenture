@@ -1,222 +1,127 @@
-    1  ansible all -i inventory -m ping -u vagrant -k 
-    2  apt-get install sshpass -y 
-    3  ls -ltr  /root/.ssh/
-    4  ssh vagrant@172.42.42.101
-    5  ls -ltr  /root/.ssh/
-    6  cat   /root/.ssh/known_hosts 
-    7  ansible all -i inventory -m ping -u vagrant -k 
-    8  ssh vagrant@172.42.42.102
-    9  ansible all -i inventory -m ping -u vagrant -k 
-   10  cat /root/.ssh/known_hosts 
+    1  java -version 
+    2  mvn -version 
+    3  ansible --version 
+    4  docker status 
+    5  docker version 
+    6  exit
+    7  ls
+    8  cd devops-acc-2020April06/
+    9  ls
+   10  git pull 
    11  ls
-   12  cat inventory 
-   13  ..
-   14  ls
-   15  cd ..
+   12  cat README.md 
+   13  ls
+   14  vim README.md 
+   15  git add . ; git commit -m "READme"; git push 
    16  ls
-   17  history > Day4_History.txt
-   18  ls
-   19  cd ..
-   20  ls
-   21  git add . ; git commit -m "01-Ansible Basic Inventory"
-   22  git push 
+   17  git init 
+   18  ls -a 
+   19  git config --global --list 
+   20  git config --global user.name "Amit Vashist"
+   21  git config --global user.email "amitvashist7@outlook.com"
+   22  git config --global --list 
    23  ls
-   24  cd 04-Ansible/
+   24  vim README.md 
    25  ls
-   26  01-Inventory/
+   26  cd devops-acc-2020April06/03-Docker/DockerCompose/3-tier-wordpress-app/
    27  ls
-   28  cat 01-Inventory/inventory 
-   29  ansible all -i inventory -m ping -u vagrant -k 
-   30  docker kill $(docker ps -q)
-   31  docker ps -q
+   28  mkdir logs/nginx -p 
+   29  mkdir db-data
+   30  ls
+   31  exit
    32  ls
-   33  cd 01-Inventory/
+   33  cd devops-acc-2020April06/04-Ansible/04-Roles/
    34  ls
-   35  vim inventory 
-   36  ansible all -i inventory -m ping -u vagrant -k 
-   37  vim inventory 
-   38  ansible all -i inventory -m ping -u vagrant -k 
-   39  ansible web -i inventory -m ping -u vagrant -k 
-   40  ansible db -i inventory -m ping -u vagrant -k 
-   41  vim inventory 
-   42  ansible db -i inventory -m ping -u vagrant -k 
-   43  vim inventory 
-   44  ansible db -i inventory -m ping -u vagrant -k 
+   35  mkdir roles
+   36  cd roles/
+   37  ls
+   38  ansible-galaxy init webserver
+   39  ls
+   40  ansible-galaxy init tomcat
+   41  ls
+   42  apt-get install tree -y 
+   43  ls
+   44  tree . 
    45  ls
-   46  vim inventory 
-   47  ansible dc -i inventory -m ping -u vagrant -k 
-   48  lls
+   46  cd webserver/
+   47  ls
+   48  vim vars/main.yml 
    49  ls
-   50  vim inventory 
-   51  ansible dc -i inventory -m ping
-   52  ansible web -i inventory -m ping
-   53  ansible web -i inventory -m pingl
+   50  vim tasks/main.yml 
+   51  ls
+   52  cp -rf ../../../03-Template/templates/index.html files/
+   53  cp -rf ../../../03-Template/templates/info.j2 templates/
    54  ls
-   55  vim inventory 
-   56  ansible all -i inventory -m pingl
-   57  ansible all -i inventory -m ping
-   58  ansible dc -i inventory -m ping
-   59  ansible web -i inventory -m ping
-   60  ansible db -i inventory -m ping
-   61  ls
-   62  vi inventory 
-   63  ansible prod -i inventory -m ping
-   64  ansible uat -i inventory -m ping
-   65  ansible uat:prod -i inventory -m ping
-   66  ansible 'prod:&web' -i inventory -m ping
-   67  ansible 'prod:&db' -i inventory -m ping
+   55  vim tasks/main.yml 
+   56  ls
+   57  cd ..
+   58  ls
+   59  ansible-galaxy init server-common
+   60  ls
+   61  vim server-common/tasks/git.yaml
+   62  ls
+   63  vim server-common/tasks/firewall.yaml
+   64  ls
+   65  vim server-common/tasks/common-user.yaml
+   66  cat /etc/shadow
+   67  vim server-common/tasks/common-user.yaml
    68  ls
-   69  vim inventory 
-   70  ansible 'prod:&db' -i inventory -m ping
-   71  ansible 'prod:&web' -i inventory -m ping
-   72  ansible 'prod:&db' -i inventory -m ping
-   73  ansible 'prod:&db:!python3' -i inventory -m ping
-   74  ansible 'prod:&web:!python3' -i inventory -m ping
-   75  vi inventory 
-   76  ansible 'prod:&web:!python3' -i inventory -m ping
+   69  vim server-common/tasks/main.yml 
+   70  ls
+   71  cd ..
+   72  l
+   73  ls
+   74  rm -rf templates/
+   75  ls
+   76  cat webserver-playbook.yaml 
    77  ls
    78  cd ..
    79  ls
-   80  history > Day4_History.txt 
+   80  cd 04-Roles/
    81  ls
-   82  cd ..
-   83  ls
-   84  git add . ; git commit -m "Inventory Features"
-   85  git push 
-   86  ls
-   87  cd 04-Ansible/
-   88  ls
-   89  ansible-doc  -l 
-   90  ansible-doc  ping 
-   91  ansible-doc command 
-   92  df -h 
-   93  ls
-   94  cp -rf 01-Inventory 02-Playbook
-   95  ls
-   96  cd 02-Playbook/
-   97  ls
-   98  vim inventory 
-   99  ls
-  100  df -h 
-  101  ansible mysrv -i inventory -m command -a 'df -h'
-  102  ansible mysrv -i inventory -m command -a 'ip addr'
-  103  ansible mysrv -i inventory -m command -a 'netstat -tulnp'
-  104  cat /etc/*-release
-  105  ansible mysrv -i inventory -m command -a 'cat /etc/*-release'
-  106  ansible mysrv -i inventory -m hell -a 'cat /etc/*-release'
-  107  ansible mysrv -i inventory -m shell -a 'cat /etc/*-release'
+   82  cat webserver-playbook.yaml 
+   83  vim webserver.yaml
+   84  ansible-playbook webserver.yaml 
+   85  ls
+   86  rm webserver-playbook.yaml
+   87  ls
+   88  cat webserver.yaml 
+   89  vim webserver.yaml 
+   90  ansible-playbook webserver.yaml 
+   91  cat webserver.yaml 
+   92  vim roles/server-common/tasks/main.yml 
+   93  ansible-playbook webserver.yaml 
+   94  ls
+   95  cp -rf webserver.yaml common.yaml
+   96  ls
+   97  vim webserver.yaml 
+   98  ls
+   99  ansible-playbook common.yaml 
+  100  vim common.yaml 
+  101  ls
+  102  vim webserver.yaml 
+  103  ls
+  104  mv webserver.yaml common_1.yaml 
+  105  ls
+  106  cp -rf common.yaml webserver.yaml
+  107  ;s
   108  ls
-  109  cat /etc/ansible/ansible.cfg 
-  110  cat /etc/ansible/hosts 
-  111  ls
-  112  vim ansible.cfg
-  113  > /root/.ssh/known_hosts 
+  109  mv common_1.yaml common.yaml
+  110  ls
+  111  cat common.yaml 
+  112  cat webserver.yaml 
+  113  ansible-playbook common.yaml 
   114  ls
-  115  cat /root/.ssh/known_hosts
+  115  tree roles/
   116  ls
-  117  vi ansible.cfg 
-  118  ansible mysrv -m shell 'cat /etc/*-release'
-  119  ls
-  120  cat inventory 
-  121  ansible mysrv -m shell 'cat /etc/*-release'
+  117  tree roles/
+  118  ls
+  119  cd ..
+  120  ls
+  121  cd ..
   122  ls
-  123  vi ansible.cfg 
-  124  ansible mysrv -m shell 'cat /etc/*-release'
-  125  grep -i inventory /etc/ansible/ansible.cfg 
-  126  vi ansible.cfg 
-  127  ansible mysrv -m shell 'cat /etc/*-release'
-  128  ansible mysrv -m shell 'cat /etc/*-release' -vvvv
-  129  ansible mysrv -m shell 'cat /etc/*-release' -vv
-  130  ls
-  131  ansible web -m shell 'cat /etc/*-release' 
-  132  l
-  133  pwd
-  134  vim ansible.cfg 
-  135  ansible web -m shell 'cat /etc/*-release' 
-  136  ansible web -i inventory -m shell 'cat /etc/*-release' 
-  137  ls
-  138  vim inventory 
-  139  ansible web -i inventory -m shell 'cat /etc/*-release' 
-  140  ansible mysrv -i inventory -m command -a 'netstat -tulnp'
-  141  ansible mysrv -m command -a 'netstat -tulnp'
-  142  history 
-  143  ansible web  -m shell 'cat /etc/*-release'
-  144  ansible web  -m shell -a 'cat /etc/*-release'
-  145  ls
-  146  ansible web  -m shell -a 'cat /etc/*-release'
-  147  ansible mysrv  -m command -a 'netstat -tulnp'
-  148  cat /root/.ssh/known_hosts 
-  149  vi ansible.cfg 
-  150  cat /root/.ssh/known_hosts 
-  151  ansible mysrv  -m command -a 'netstat -tulnp'
-  152  cat /root/.ssh/known_hosts 
-  153  ls
-  154  vim webserver-playbook.yaml
-  155  ansible-doc apt
-  156  vim webserver-playbook.yaml
-  157  ansible-doc service
-  158  vim webserver-playbook.yaml
-  159  cat webserver-playbook.yaml 
-  160  ansible-playbook webserver-playbook.yaml 
-  161  ls
-  162  vim webserver-playbook.yaml 
-  163  ansible-playbook webserver-playbook.yaml 
-  164  ls
-  165  vim webserver-playbook.yaml 
-  166  ansible-playbook webserver-playbook.yaml 
-  167  vim webserver-playbook.yaml 
-  168  ansible-playbook webserver-playbook.yaml 
-  169  ls
-  170  cd ..
-  171  ls
-  172  cd ..
-  173  ls
-  174  git add . ; git commit -m "02-Playbook"; git push 
-  175  ls
-  176  cd 04-Ansible/
-  177  ls
-  178  cp -rf 02-Playbook 03-Template
-  179  ls
-  180  cd 03-Template/
-  181  ls
-  182  mkdir template
-  183  ls
-  184  vim template/index.html
-  185  ls
-  186  vim webserver-playbook.yaml 
-  187  ls
-  188  mv template templates 
-  189  ansible-playbook webserver-playbook.yaml 
-  190  vi inventory 
-  191  ls
-  192  ansible-playbook webserver-playbook.yaml 
-  193  ls
-  194  vim templates/info.j2
-  195  ansible 172.42.42.101 -m setup 
-  196  ansible 172.42.42.101 -m setup | grep -i fqdn
-  197  vim templates/info.j2 
-  198  vim webserver-playbook.yaml 
-  199  cat webserver-playbook.yaml 
-  200  ansible-playbook webserver-playbook.yaml 
-  201  vim webserver-playbook.yaml 
-  202  ansible-playbook webserver-playbook.yaml 
-  203  ls
-  204  vim webserver-playbook.yaml 
-  205  ansible 172.42.42.101 -m setup | grep -i os_family
-  206  ls
-  207  vim webserver-playbook.yaml 
-  208  vim templates/info.j2 
-  209  ansible-playbook webserver-playbook.yaml 
-  210  ls
-  211  vim webserver-playbook.yaml 
-  212  ls
-  213  vim templates/info.j2 
-  214  ansible-playbook webserver-playbook.yaml 
-  215  vim webserver-playbook.yaml 
-  216  ansible-playbook webserver-playbook.yaml 
-  217  ls
-  218  vim webserver-playbook.yaml 
-  219  ls
-  220  cd ..
-  221  ls
-  222  history > Day4_History.txt 
+  123  git add . ;git commit -m "04-Roles"; git push 
+  124  ls
+  125  cd 04-Ansible/
+  126  ls
+  127  history > Day4_History.txt 
